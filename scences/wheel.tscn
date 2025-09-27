@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck2lp0slhityo"]
+
+[ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
+[ext_resource type="Script" uid="uid://bvgtfgc2ekryc" path="res://scripts/spin.gd" id="3_gohbq"]
+[ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="3_im4pi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb4pr"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h42e7"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3wka"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d35lu"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d20x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb4pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h42e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3wka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d35lu")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 12.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_enabled = false
+
+[node name="Wheel" type="Node2D" parent="."]
+position = Vector2(-154, -178)
+
+[node name="wheelspin" type="AnimatedSprite2D" parent="Wheel"]
+texture_filter = 1
+position = Vector2(402, 179.00002)
+scale = Vector2(6.999999, 6.999999)
+sprite_frames = SubResource("SpriteFrames_7d20x")
+animation = &"Spin"
+frame = 3
+frame_progress = 0.28219065
+
+[node name="wheel" type="Sprite2D" parent="Wheel"]
+visible = false
+position = Vector2(680.0001, 185.99998)
+scale = Vector2(1.25, 1.25)
+
+[node name="spinButton" type="Button" parent="Wheel"]
+texture_filter = 1
+offset_left = -416.0
+offset_top = 339.0
+offset_right = -376.0
+offset_bottom = 379.0
+scale = Vector2(4, 4)
+icon = ExtResource("2_1quow")
+flat = true
+script = ExtResource("3_gohbq")
+
+[connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
