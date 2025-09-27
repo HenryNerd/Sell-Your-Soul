@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck2lp0slhityo"]
+[gd_scene load_steps=11 format=3 uid="uid://ck2lp0slhityo"]
 
 [ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
 [ext_resource type="Script" uid="uid://bvgtfgc2ekryc" path="res://scripts/spin.gd" id="3_gohbq"]
 [ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="3_im4pi"]
+[ext_resource type="Script" uid="uid://b1ju1exgi2hwo" path="res://scripts/ball.gd" id="4_im4pi"]
+[ext_resource type="Texture2D" uid="uid://dc0kpgcxkt50f" path="res://assets/ball.png" id="4_rb4pr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rb4pr"]
 atlas = ExtResource("3_im4pi")
@@ -57,20 +59,22 @@ animation = &"Spin"
 frame = 3
 frame_progress = 0.28219065
 
-[node name="wheel" type="Sprite2D" parent="Wheel"]
-visible = false
-position = Vector2(680.0001, 185.99998)
-scale = Vector2(1.25, 1.25)
-
 [node name="spinButton" type="Button" parent="Wheel"]
 texture_filter = 1
-offset_left = -416.0
-offset_top = 339.0
-offset_right = -376.0
-offset_bottom = 379.0
+offset_left = -412.0
+offset_top = 348.0
+offset_right = -372.0
+offset_bottom = 388.0
 scale = Vector2(4, 4)
 icon = ExtResource("2_1quow")
 flat = true
 script = ExtResource("3_gohbq")
+
+[node name="ball" type="Sprite2D" parent="Wheel"]
+visible = false
+position = Vector2(405, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_rb4pr")
+script = ExtResource("4_im4pi")
 
 [connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
