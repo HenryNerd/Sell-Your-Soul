@@ -134,3 +134,7 @@ func betCheck() -> void:
 		Userbalance += userBet
 	else:
 		Userbalance -= userBet
+
+func _on_quit_button_pressed() -> void:
+	var new_scene = load("res://scences/menu.tscn") as PackedScene
+	get_tree().change_scene_to_packed(new_scene)

@@ -140,6 +140,14 @@ text = "Balance: $100"
 horizontal_alignment = 1
 language = "English"
 
+[node name="quitButton" type="Button" parent="Wheel"]
+offset_left = 613.0
+offset_top = 366.0
+offset_right = 657.0
+offset_bottom = 397.0
+scale = Vector2(1.5, 1.5)
+text = "Quit"
+
 [node name="winDisplay" type="Sprite2D" parent="Wheel"]
 texture_filter = 2
 position = Vector2(-79, 229)
@@ -199,5 +207,6 @@ script = ExtResource("11_qh1u0")
 stream = ExtResource("12_nmbnx")
 
 [connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
+[connection signal="pressed" from="Wheel/quitButton" to="Wheel/spinButton" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Wheel/redBetButton" to="Wheel/spinButton" method="_on_red_bet_button_pressed"]
 [connection signal="pressed" from="Wheel/blackBetButton" to="Wheel/spinButton" method="_on_black_bet_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://uu1eonsravsw"]
+[gd_scene load_steps=17 format=3 uid="uid://uu1eonsravsw"]
 
 [ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="1_jfcen"]
 [ext_resource type="Texture2D" uid="uid://rubgld7jo3eb" path="res://assets/StartButton.png" id="2_fovjn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://drhkktoguiv5f" path="res://assets/credits.png" id="4_t0tc5"]
 [ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="5_ls033"]
 [ext_resource type="AudioStream" uid="uid://c6hqf22f4yrmu" path="res://assets/bossa-nova.mp3" id="7_ls033"]
+[ext_resource type="Texture2D" uid="uid://bjtgmvq3gstv3" path="res://assets/distrubution.png" id="8_d43pl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro3e2"]
 
@@ -56,8 +57,8 @@ animations = [{
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-7.683039e-05, -2.5063753e-05)
-scale = Vector2(5.999999, 5.9999995)
+position = Vector2(1, -2)
+scale = Vector2(6, 6)
 texture = ExtResource("1_jfcen")
 
 [node name="Button" type="Button" parent="."]
@@ -100,8 +101,33 @@ animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(516, -388)
 stream = ExtResource("7_ls033")
+volume_db = 19.185
 autoplay = true
 parameters/looping = true
 
+[node name="volume" type="HSlider" parent="."]
+offset_left = -126.0
+offset_top = 152.0
+offset_right = 124.0
+offset_bottom = 192.0
+tooltip_text = "Volume"
+max_value = 24.0
+rounded = true
+ticks_position = 1
+
+[node name="disribution" type="Sprite2D" parent="."]
+position = Vector2(-1, 244)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_d43pl")
+
+[node name="quitButton" type="Button" parent="."]
+offset_left = -76.0
+offset_top = 115.0
+offset_right = 74.0
+offset_bottom = 152.0
+text = "Quit"
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="quitButton" to="Button" method="_on_quit_button_pressed"]
