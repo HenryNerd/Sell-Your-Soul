@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var wheel = $"../wheelspin"
 var center = Vector2(430.0, 185.0)
 var radius = 180.0
-var speed = 6.0
+var speed = 6
 var angle = 0.0
 var spinning = false
 

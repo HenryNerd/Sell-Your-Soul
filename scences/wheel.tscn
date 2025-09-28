@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ck2lp0slhityo"]
+[gd_scene load_steps=43 format=3 uid="uid://ck2lp0slhityo"]
 
 [ext_resource type="AudioStream" uid="uid://b107vhhqf6fkw" path="res://assets/roulette.ogg" id="1_h42e7"]
 [ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
@@ -9,9 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dc0kpgcxkt50f" path="res://assets/ball.png" id="4_rb4pr"]
 [ext_resource type="Texture2D" uid="uid://pnb43lnmpnp7" path="res://assets/betRed.png" id="8_d35lu"]
 [ext_resource type="Texture2D" uid="uid://bu21ouiktrjke" path="res://assets/betBlack.png" id="9_7d20x"]
-[ext_resource type="Texture2D" uid="uid://0vffbs4xnbpx" path="res://assets/sell.png" id="10_jttx6"]
+[ext_resource type="Texture2D" uid="uid://clws1utdrffor" path="res://assets/shop.png" id="11_emt5p"]
 [ext_resource type="Script" uid="uid://27txnv1341s2" path="res://scripts/sellmenulogic.gd" id="11_qh1u0"]
 [ext_resource type="AudioStream" uid="uid://bu1e0ue2icpak" path="res://assets/spin.wav" id="12_nmbnx"]
+[ext_resource type="Texture2D" uid="uid://pah0ols2p1qv" path="res://assets/moneybackround.png" id="12_xrrcx"]
+[ext_resource type="Texture2D" uid="uid://btdw2h6x20m47" path="res://assets/coin.png" id="13_emt5p"]
+[ext_resource type="FontFile" uid="uid://d2jptip2iubv" path="res://assets/pixel.ttf" id="15_emt5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rb4pr"]
 atlas = ExtResource("3_im4pi")
@@ -75,6 +78,70 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01xu3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6u18"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uon0g"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qnpq"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34j48"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01xu3"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh7f0"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(600, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq10y"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(720, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ybkr"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(840, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85pki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6u18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uon0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qnpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34j48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01xu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh7f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq10y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ybkr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -126,19 +193,13 @@ script = ExtResource("4_im4pi")
 
 [node name="balanceEdit" type="LineEdit" parent="Wheel"]
 offset_left = -201.0
-offset_top = 338.0
+offset_top = 307.0
 offset_right = 32.0
-offset_bottom = 399.0
-placeholder_text = "Your Bet"
-
-[node name="balance" type="Label" parent="Wheel"]
-offset_left = -192.0
-offset_top = 311.0
-offset_right = 11.0
-offset_bottom = 334.0
-text = "Balance: $100"
-horizontal_alignment = 1
-language = "English"
+offset_bottom = 368.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Bet"
+alignment = 1
 
 [node name="quitButton" type="Button" parent="Wheel"]
 offset_left = 613.0
@@ -189,7 +250,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_uon0g")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0qnpq")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_34j48")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_01xu3")
-icon = ExtResource("10_jttx6")
+icon = ExtResource("11_emt5p")
 item_count = 5
 popup/item_0/text = "Kids (x2) - $30"
 popup/item_0/id = 0
@@ -210,8 +271,41 @@ position = Vector2i(-525, -25)
 size = Vector2i(1006, 150)
 dialog_text = "You are out of money and belongings to sell. The debt collection agency has come to collect you. You will now need to start over."
 
+[node name="Sprite2D" type="Sprite2D" parent="Wheel"]
+position = Vector2(160, 463)
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("12_xrrcx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Wheel/Sprite2D"]
+position = Vector2(-220, 1.5258789e-05)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_85pki")
+autoplay = "default"
+frame_progress = 0.3772699
+
 [node name="spining" type="AudioStreamPlayer2D" parent="Wheel"]
 stream = ExtResource("12_nmbnx")
+
+[node name="balance" type="Label" parent="Wheel"]
+offset_left = 103.0
+offset_top = 444.0
+offset_right = 306.0
+offset_bottom = 502.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 38
+text = "$100"
+horizontal_alignment = 1
+language = "English"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Wheel"]
+offset_left = -199.0
+offset_top = 290.0
+offset_right = 25.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 14
+text = "Enter Your Bet:"
 
 [connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
 [connection signal="pressed" from="Wheel/quitButton" to="Wheel/spinButton" method="_on_quit_button_pressed"]

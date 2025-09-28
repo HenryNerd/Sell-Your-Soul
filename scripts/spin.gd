@@ -87,7 +87,7 @@ func _on_pressed() -> void:
 	music.play()
 	
 	if balance_label:
-		balance_label.text = "Balance: $" + str(Userbalance)
+		balance_label.text = "$" + str(Userbalance)
 	else:
 		print("Balance label not found! Check node name and path.")
 		
@@ -107,7 +107,7 @@ func _on_black_bet_button_pressed() -> void:
 	betSelected = true
 
 func _process(delta):
-	balance_label.text = "Balance: $" + str(Userbalance)
+	balance_label.text = "$" + str(Userbalance)
 	if balance_edit.text.strip_edges() != "":
 		amountSelected = true
 		var parsed_bet = int(balance_edit.text)

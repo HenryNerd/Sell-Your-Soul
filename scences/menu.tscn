@@ -127,7 +127,7 @@ offset_left = -76.0
 offset_top = 115.0
 offset_right = 74.0
 offset_bottom = 152.0
-text = "Quit"
+text = "Exit Game"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="quitButton" to="Button" method="_on_quit_button_pressed"]
