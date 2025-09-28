@@ -7,6 +7,8 @@ var rng = RandomNumberGenerator.new()
 @onready var balance_edit = $"../balanceEdit"
 @onready var redButton = $"../redBetButton"
 @onready var blackButton = $"../blackBetButton"
+@onready var spinSound = $"../spining"
+@onready var music = $"../../Music"
 
 var Userbalance: int = 100
 var UserBetChoice: String
@@ -30,6 +32,8 @@ func _on_pressed() -> void:
 	balance_edit.editable = not balance_edit.editable
 	ball.visible = true
 	ball.spinning = true
+	spinSound.play()
+	music.stop()
 
 	if balance_edit.text.strip_edges() == "":
 		print("No bet entered, defaulting to 0")
@@ -77,6 +81,8 @@ func _on_pressed() -> void:
 	set_process(true)
 	betSelected = false
 	amountSelected = false
+	spinSound.stop()
+	music.play()
 	
 	if balance_label:
 		balance_label.text = "Balance: $" + str(Userbalance)

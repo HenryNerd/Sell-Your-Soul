@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ck2lp0slhityo"]
+[gd_scene load_steps=31 format=3 uid="uid://ck2lp0slhityo"]
 
 [ext_resource type="AudioStream" uid="uid://b107vhhqf6fkw" path="res://assets/roulette.ogg" id="1_h42e7"]
 [ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bu21ouiktrjke" path="res://assets/betBlack.png" id="9_7d20x"]
 [ext_resource type="Texture2D" uid="uid://0vffbs4xnbpx" path="res://assets/sell.png" id="10_jttx6"]
 [ext_resource type="Script" uid="uid://27txnv1341s2" path="res://scripts/sellmenulogic.gd" id="11_qh1u0"]
+[ext_resource type="AudioStream" uid="uid://bu1e0ue2icpak" path="res://assets/spin.wav" id="12_nmbnx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rb4pr"]
 atlas = ExtResource("3_im4pi")
@@ -193,6 +194,9 @@ popup/item_3/id = 3
 popup/item_4/text = "House - $200"
 popup/item_4/id = 4
 script = ExtResource("11_qh1u0")
+
+[node name="spining" type="AudioStreamPlayer2D" parent="Wheel"]
+stream = ExtResource("12_nmbnx")
 
 [connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
 [connection signal="pressed" from="Wheel/redBetButton" to="Wheel/spinButton" method="_on_red_bet_button_pressed"]
