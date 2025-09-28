@@ -1,0 +1,316 @@
+[gd_scene load_steps=43 format=3 uid="uid://ck2lp0slhityo"]
+
+[ext_resource type="AudioStream" uid="uid://b107vhhqf6fkw" path="res://assets/roulette.ogg" id="1_h42e7"]
+[ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
+[ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="2_d35lu"]
+[ext_resource type="Script" uid="uid://bvgtfgc2ekryc" path="res://scripts/spin.gd" id="3_gohbq"]
+[ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="3_im4pi"]
+[ext_resource type="Script" uid="uid://crts7ijjgbbpw" path="res://scripts/ball.gd" id="4_im4pi"]
+[ext_resource type="Texture2D" uid="uid://dc0kpgcxkt50f" path="res://assets/ball.png" id="4_rb4pr"]
+[ext_resource type="Texture2D" uid="uid://pnb43lnmpnp7" path="res://assets/betRed.png" id="8_d35lu"]
+[ext_resource type="Texture2D" uid="uid://bu21ouiktrjke" path="res://assets/betBlack.png" id="9_7d20x"]
+[ext_resource type="Texture2D" uid="uid://clws1utdrffor" path="res://assets/shop.png" id="11_emt5p"]
+[ext_resource type="Script" uid="uid://27txnv1341s2" path="res://scripts/sellmenulogic.gd" id="11_qh1u0"]
+[ext_resource type="AudioStream" uid="uid://bu1e0ue2icpak" path="res://assets/spin.wav" id="12_nmbnx"]
+[ext_resource type="Texture2D" uid="uid://pah0ols2p1qv" path="res://assets/moneybackround.png" id="12_xrrcx"]
+[ext_resource type="Texture2D" uid="uid://btdw2h6x20m47" path="res://assets/coin.png" id="13_emt5p"]
+[ext_resource type="FontFile" uid="uid://d2jptip2iubv" path="res://assets/pixel.ttf" id="15_emt5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb4pr"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h42e7"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3wka"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d35lu"]
+atlas = ExtResource("3_im4pi")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d20x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb4pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h42e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3wka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d35lu")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 12.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7d20x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d35lu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jne2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jttx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qh1u0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmbnx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrrcx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emt5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6u18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uon0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qnpq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34j48"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01xu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6u18"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uon0g"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qnpq"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34j48"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01xu3"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh7f0"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(600, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq10y"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(720, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ybkr"]
+atlas = ExtResource("13_emt5p")
+region = Rect2(840, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85pki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6u18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uon0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qnpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34j48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01xu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh7f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq10y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ybkr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_enabled = false
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_h42e7")
+autoplay = true
+
+[node name="Wheel" type="Node2D" parent="."]
+position = Vector2(-154, -178)
+
+[node name="Background" type="Sprite2D" parent="Wheel"]
+texture_filter = 1
+position = Vector2(154, 177.5)
+scale = Vector2(5.9895835, 5.990741)
+texture = ExtResource("2_d35lu")
+
+[node name="wheelspin" type="AnimatedSprite2D" parent="Wheel"]
+texture_filter = 1
+position = Vector2(430, 185)
+scale = Vector2(6.999999, 6.999999)
+sprite_frames = SubResource("SpriteFrames_7d20x")
+animation = &"Spin"
+frame = 3
+frame_progress = 0.28219065
+
+[node name="spinButton" type="Button" parent="Wheel"]
+texture_filter = 1
+offset_left = -368.0
+offset_top = 277.0
+offset_right = -336.0
+offset_bottom = 309.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7d20x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d35lu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jne2l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jttx6")
+icon = ExtResource("2_1quow")
+flat = true
+script = ExtResource("3_gohbq")
+
+[node name="ball" type="Sprite2D" parent="Wheel"]
+visible = false
+position = Vector2(405, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_rb4pr")
+script = ExtResource("4_im4pi")
+
+[node name="balanceEdit" type="LineEdit" parent="Wheel"]
+offset_left = -201.0
+offset_top = 307.0
+offset_right = 32.0
+offset_bottom = 368.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Bet"
+alignment = 1
+
+[node name="quitButton" type="Button" parent="Wheel"]
+offset_left = 613.0
+offset_top = 366.0
+offset_right = 657.0
+offset_bottom = 397.0
+scale = Vector2(1.5, 1.5)
+text = "Quit"
+
+[node name="winDisplay" type="Sprite2D" parent="Wheel"]
+texture_filter = 2
+position = Vector2(-79, 229)
+
+[node name="redBetButton" type="Button" parent="Wheel"]
+texture_filter = 1
+offset_left = -368.0
+offset_top = -43.0
+offset_right = -336.0
+offset_bottom = -11.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qh1u0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nmbnx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xrrcx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_emt5p")
+icon = ExtResource("8_d35lu")
+
+[node name="blackBetButton" type="Button" parent="Wheel"]
+texture_filter = 1
+offset_left = -213.0
+offset_top = -43.0
+offset_right = -181.0
+offset_bottom = -11.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qh1u0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nmbnx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xrrcx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w6u18")
+icon = ExtResource("9_7d20x")
+
+[node name="MenuButton" type="MenuButton" parent="Wheel"]
+texture_filter = 1
+offset_left = 58.0
+offset_top = -44.0
+offset_right = 90.0
+offset_bottom = -12.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uon0g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0qnpq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_34j48")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_01xu3")
+icon = ExtResource("11_emt5p")
+item_count = 5
+popup/item_0/text = "Kids (x2) - $30"
+popup/item_0/id = 0
+popup/item_1/text = "Spouse - $50"
+popup/item_1/id = 1
+popup/item_2/text = "Soul - $100"
+popup/item_2/id = 2
+popup/item_3/text = "Car - $150"
+popup/item_3/id = 3
+popup/item_4/text = "House - $200"
+popup/item_4/id = 4
+script = ExtResource("11_qh1u0")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Wheel"]
+oversampling_override = 1.0
+title = "You Have Run Out of Money"
+position = Vector2i(-525, -25)
+size = Vector2i(1006, 150)
+dialog_text = "You are out of money and belongings to sell. The debt collection agency has come to collect you. You will now need to start over."
+
+[node name="Sprite2D" type="Sprite2D" parent="Wheel"]
+position = Vector2(160, 463)
+scale = Vector2(0.5, 0.4)
+texture = ExtResource("12_xrrcx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Wheel/Sprite2D"]
+position = Vector2(-220, 1.5258789e-05)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_85pki")
+autoplay = "default"
+frame_progress = 0.3772699
+
+[node name="spining" type="AudioStreamPlayer2D" parent="Wheel"]
+stream = ExtResource("12_nmbnx")
+
+[node name="balance" type="Label" parent="Wheel"]
+offset_left = 103.0
+offset_top = 444.0
+offset_right = 306.0
+offset_bottom = 502.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 38
+text = "$100"
+horizontal_alignment = 1
+language = "English"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Wheel"]
+offset_left = -199.0
+offset_top = 290.0
+offset_right = 25.0
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("15_emt5p")
+theme_override_font_sizes/font_size = 14
+text = "Enter Your Bet:"
+
+[connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
+[connection signal="pressed" from="Wheel/quitButton" to="Wheel/spinButton" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Wheel/redBetButton" to="Wheel/spinButton" method="_on_red_bet_button_pressed"]
+[connection signal="pressed" from="Wheel/blackBetButton" to="Wheel/spinButton" method="_on_black_bet_button_pressed"]
+[connection signal="canceled" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_canceled"]
+[connection signal="close_requested" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_close_requested"]
+[connection signal="confirmed" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_confirmed"]

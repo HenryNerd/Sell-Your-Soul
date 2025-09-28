@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=3 uid="uid://uu1eonsravsw"]
+
+[ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="1_jfcen"]
+[ext_resource type="Texture2D" uid="uid://rubgld7jo3eb" path="res://assets/StartButton.png" id="2_fovjn"]
+[ext_resource type="Texture2D" uid="uid://cgxowj0o8xvwb" path="res://assets/Title.png" id="3_o45rc"]
+[ext_resource type="Script" uid="uid://bfdcun1mbveaj" path="res://scripts/title.gd" id="3_t0tc5"]
+[ext_resource type="Texture2D" uid="uid://drhkktoguiv5f" path="res://assets/credits.png" id="4_t0tc5"]
+[ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="5_ls033"]
+[ext_resource type="AudioStream" uid="uid://c6hqf22f4yrmu" path="res://assets/bossa-nova.mp3" id="7_ls033"]
+[ext_resource type="Texture2D" uid="uid://bjtgmvq3gstv3" path="res://assets/distrubution.png" id="8_d43pl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro3e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_df16s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fovjn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d43pl"]
+atlas = ExtResource("5_ls033")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unjnh"]
+atlas = ExtResource("5_ls033")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56cyf"]
+atlas = ExtResource("5_ls033")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm6dl"]
+atlas = ExtResource("5_ls033")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7dtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d43pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unjnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56cyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm6dl")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -2)
+scale = Vector2(6, 6)
+texture = ExtResource("1_jfcen")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = -65.0
+offset_top = -27.0
+offset_right = -33.0
+offset_bottom = 5.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ro3e2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_df16s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fovjn")
+icon = ExtResource("2_fovjn")
+script = ExtResource("3_t0tc5")
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(2, -145)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_o45rc")
+
+[node name="Credits2" type="Sprite2D" parent="."]
+position = Vector2(0, 212)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_t0tc5")
+
+[node name="wheel" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(301, 55)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_t7dtu")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="wheel2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-298, 55)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_t7dtu")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(516, -388)
+stream = ExtResource("7_ls033")
+volume_db = 19.185
+autoplay = true
+parameters/looping = true
+
+[node name="volume" type="HSlider" parent="."]
+offset_left = -126.0
+offset_top = 152.0
+offset_right = 124.0
+offset_bottom = 192.0
+tooltip_text = "Volume"
+max_value = 24.0
+rounded = true
+ticks_position = 1
+
+[node name="disribution" type="Sprite2D" parent="."]
+position = Vector2(-1, 244)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_d43pl")
+
+[node name="quitButton" type="Button" parent="."]
+offset_left = -76.0
+offset_top = 115.0
+offset_right = 74.0
+offset_bottom = 152.0
+text = "Exit Game"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="quitButton" to="Button" method="_on_quit_button_pressed"]
