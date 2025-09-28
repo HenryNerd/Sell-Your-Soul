@@ -15,6 +15,8 @@ var userBet: int = 0
 var betSelected = false
 var amountSelected = false
 var betValid = false
+var item_owned := [true, true, true, true, true]
+var item_costs := [30, 50, 100, 150, 200]
 
 func _ready():
 	self.disabled = true

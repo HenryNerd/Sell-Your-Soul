@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="2_d35lu"]
 [ext_resource type="Script" uid="uid://bvgtfgc2ekryc" path="res://scripts/spin.gd" id="3_gohbq"]
 [ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="3_im4pi"]
-[ext_resource type="Script" uid="uid://b1ju1exgi2hwo" path="res://scripts/ball.gd" id="4_im4pi"]
+[ext_resource type="Script" uid="uid://crts7ijjgbbpw" path="res://scripts/ball.gd" id="4_im4pi"]
 [ext_resource type="Texture2D" uid="uid://dc0kpgcxkt50f" path="res://assets/ball.png" id="4_rb4pr"]
 [ext_resource type="Texture2D" uid="uid://pnb43lnmpnp7" path="res://assets/betRed.png" id="8_d35lu"]
 [ext_resource type="Texture2D" uid="uid://bu21ouiktrjke" path="res://assets/betBlack.png" id="9_7d20x"]
@@ -128,6 +128,7 @@ offset_left = -201.0
 offset_top = 338.0
 offset_right = 32.0
 offset_bottom = 399.0
+placeholder_text = "Your Bet"
 
 [node name="balance" type="Label" parent="Wheel"]
 offset_left = -192.0

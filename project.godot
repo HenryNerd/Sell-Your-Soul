@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Funny Game"
-run/main_scene="uid://ck2lp0slhityo"
+config/name="Sell Your Soul"
+run/main_scene="uid://uu1eonsravsw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
