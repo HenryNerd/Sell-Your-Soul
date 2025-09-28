@@ -9,6 +9,7 @@ var rng = RandomNumberGenerator.new()
 @onready var blackButton = $"../blackBetButton"
 @onready var spinSound = $"../spining"
 @onready var music = $"../../Music"
+@onready var confirm_dialog = $"../ConfirmationDialog"
 
 var Userbalance: int = 100
 var UserBetChoice: String
@@ -22,6 +23,7 @@ var item_costs := [30, 50, 100, 150, 200]
 
 func _ready():
 	self.disabled = true
+	confirm_dialog.hide()
 	set_process(true)
 	if balance_label:
 		balance_label.text = "Balance: $" + str(Userbalance)
@@ -123,6 +125,10 @@ func _process(delta):
 		self.disabled = false
 	else:
 		self.disabled = true
+		
+	if not item_owned.has(true) and Userbalance == 0:
+		print("Your Poor")
+		confirm_dialog.popup_centered()
 
 func betCheck() -> void:
 	print("Bet Check, Bet =", userBet)
@@ -136,5 +142,16 @@ func betCheck() -> void:
 		Userbalance -= userBet
 
 func _on_quit_button_pressed() -> void:
+	var new_scene = load("res://scences/menu.tscn") as PackedScene
+	get_tree().change_scene_to_packed(new_scene)
+
+func _on_confirmation_dialog_confirmed() -> void:
+	var new_scene = load("res://scences/menu.tscn") as PackedScene
+	get_tree().change_scene_to_packed(new_scene)
+
+func _on_confirmation_dialog_canceled() -> void:
+	get_tree().quit()
+
+func _on_confirmation_dialog_close_requested() -> void:
 	var new_scene = load("res://scences/menu.tscn") as PackedScene
 	get_tree().change_scene_to_packed(new_scene)

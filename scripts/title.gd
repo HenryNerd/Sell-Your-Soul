@@ -14,7 +14,10 @@ func _ready():
 
 func _on_volume_changed(value):
 	if music:
-		music.volume_db = value - 24
+		var db = value - 24
+		var bus_index = AudioServer.get_bus_index("Master")  # "Master" is the main bus
+		AudioServer.set_bus_volume_db(bus_index, db)
+
 
 func _on_pressed():
 	var new_scene = load("res://scences/wheel.tscn") as PackedScene

@@ -203,6 +203,13 @@ popup/item_4/text = "House - $200"
 popup/item_4/id = 4
 script = ExtResource("11_qh1u0")
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Wheel"]
+oversampling_override = 1.0
+title = "You Have Run Out of Money"
+position = Vector2i(-525, -25)
+size = Vector2i(1006, 150)
+dialog_text = "You are out of money and belongings to sell. The debt collection agency has come to collect you. You will now need to start over."
+
 [node name="spining" type="AudioStreamPlayer2D" parent="Wheel"]
 stream = ExtResource("12_nmbnx")
 
@@ -210,3 +217,6 @@ stream = ExtResource("12_nmbnx")
 [connection signal="pressed" from="Wheel/quitButton" to="Wheel/spinButton" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Wheel/redBetButton" to="Wheel/spinButton" method="_on_red_bet_button_pressed"]
 [connection signal="pressed" from="Wheel/blackBetButton" to="Wheel/spinButton" method="_on_black_bet_button_pressed"]
+[connection signal="canceled" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_canceled"]
+[connection signal="close_requested" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_close_requested"]
+[connection signal="confirmed" from="Wheel/ConfirmationDialog" to="Wheel/spinButton" method="_on_confirmation_dialog_confirmed"]
