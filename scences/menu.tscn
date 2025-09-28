@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://uu1eonsravsw"]
+
+[ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="1_jfcen"]
+[ext_resource type="Texture2D" uid="uid://rubgld7jo3eb" path="res://assets/StartButton.png" id="2_fovjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro3e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_df16s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fovjn"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7.683039e-05, -2.5063753e-05)
+scale = Vector2(5.999999, 5.9999995)
+texture = ExtResource("1_jfcen")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+offset_left = -62.0
+offset_top = 15.0
+offset_right = -30.0
+offset_bottom = 47.0
+scale = Vector2(4, 4)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ro3e2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_df16s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fovjn")
+icon = ExtResource("2_fovjn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -319.0
+offset_top = -146.0
+offset_right = 323.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 98
+text = "Sell Your Soul"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -460.0
+offset_top = 197.0
+offset_right = 462.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 30
+text = "Made by Henry Veedahl and Caiden Kim for Daydream Oshkosh"
