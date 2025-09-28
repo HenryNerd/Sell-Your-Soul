@@ -2,9 +2,13 @@ extends Button
 
 var rng = RandomNumberGenerator.new()
 @onready var ball = $"../ball"
+var balance = 100;
 
 func _on_pressed() -> void:
+	$"../winDisplay".texture = null
+	ball.visible = true
 	ball.spinning = true
+
 	disabled = true
 	icon = load("res://assets/spun-button.png")
 
@@ -20,11 +24,17 @@ func _on_pressed() -> void:
 
 	disabled = false
 	icon = load("res://assets/spin-button.png")
+
 	ball.spinning = false
-	
+	ball.hide()
+
 	var result = rng.randi_range(1, 2)
 	print(result)
 	if result == 1:
 		print("Red")
-	elif result == 1:
+		$"../winDisplay".texture = load("res://assets/red.png")
+	elif result == 2:
 		print("Black")
+		$"../winDisplay".texture = load("res://assets/black.png")
+	
+	$balance.text = "Balance: $" + str(balance)

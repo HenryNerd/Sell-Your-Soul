@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @onready var wheel = $"../wheelspin"
-var center = Vector2(402.0, 179.0)
+var center = Vector2(430.0, 185.0)
 var radius = 180.0
 var speed = -6.0
 var angle = 0.0

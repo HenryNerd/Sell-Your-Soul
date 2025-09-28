@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck2lp0slhityo"]
+[gd_scene load_steps=13 format=3 uid="uid://ck2lp0slhityo"]
 
+[ext_resource type="AudioStream" uid="uid://b107vhhqf6fkw" path="res://assets/roulette.ogg" id="1_h42e7"]
 [ext_resource type="Texture2D" uid="uid://hpbg4f5p51o0" path="res://assets/spin-button.png" id="2_1quow"]
+[ext_resource type="Texture2D" uid="uid://bk3i1uo82flhi" path="res://assets/background.png" id="2_d35lu"]
 [ext_resource type="Script" uid="uid://bvgtfgc2ekryc" path="res://scripts/spin.gd" id="3_gohbq"]
 [ext_resource type="Texture2D" uid="uid://dcneystf218a5" path="res://assets/roulette.png" id="3_im4pi"]
 [ext_resource type="Script" uid="uid://b1ju1exgi2hwo" path="res://scripts/ball.gd" id="4_im4pi"]
@@ -47,12 +49,22 @@ animations = [{
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_enabled = false
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_h42e7")
+autoplay = true
+
 [node name="Wheel" type="Node2D" parent="."]
 position = Vector2(-154, -178)
 
+[node name="Background" type="Sprite2D" parent="Wheel"]
+texture_filter = 1
+position = Vector2(154, 177.5)
+scale = Vector2(5.9895835, 5.990741)
+texture = ExtResource("2_d35lu")
+
 [node name="wheelspin" type="AnimatedSprite2D" parent="Wheel"]
 texture_filter = 1
-position = Vector2(402, 179.00002)
+position = Vector2(430, 185)
 scale = Vector2(6.999999, 6.999999)
 sprite_frames = SubResource("SpriteFrames_7d20x")
 animation = &"Spin"
@@ -61,10 +73,10 @@ frame_progress = 0.28219065
 
 [node name="spinButton" type="Button" parent="Wheel"]
 texture_filter = 1
-offset_left = -412.0
-offset_top = 348.0
-offset_right = -372.0
-offset_bottom = 388.0
+offset_left = -377.0
+offset_top = 262.0
+offset_right = -337.0
+offset_bottom = 302.0
 scale = Vector2(4, 4)
 icon = ExtResource("2_1quow")
 flat = true
@@ -76,5 +88,24 @@ position = Vector2(405, 2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_rb4pr")
 script = ExtResource("4_im4pi")
+
+[node name="LineEdit" type="LineEdit" parent="Wheel"]
+offset_left = -201.0
+offset_top = 338.0
+offset_right = 32.0
+offset_bottom = 399.0
+
+[node name="winDisplay" type="Sprite2D" parent="Wheel"]
+texture_filter = 2
+position = Vector2(-242, 27)
+
+[node name="balance" type="Label" parent="."]
+offset_left = -346.0
+offset_top = 133.0
+offset_right = -143.0
+offset_bottom = 156.0
+text = "Balance: $100"
+horizontal_alignment = 1
+language = "English"
 
 [connection signal="pressed" from="Wheel/spinButton" to="Wheel/spinButton" method="_on_pressed"]
