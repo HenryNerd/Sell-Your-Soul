@@ -15,4 +15,5 @@ Music & Graphics
 Programing
 
 ## Release
-Comming Soon to itch.io(In a few hours)
+[![Play on Itch.io](https://img.shields.io/badge/Play%20on-Itch.io-red?logo=itch.io&style=for-the-badge)](https://hveedahl.itch.io/sell-your-soul)
+
